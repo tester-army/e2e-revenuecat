@@ -1,65 +1,36 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
- */
+import { StyleSheet } from 'react-native';
 
-import '@/global.css';
+// The e2e landing's tokens, from e2e-stripe's styles/e2e.css: a dark canvas, hairlines instead of shadows, square corners.
+export const colors = {
+  canvas: '#111111',
+  panel: '#161616',
+  hairlineStrong: 'rgba(255, 255, 255, 0.2)',
+  textBright: '#ffffff',
+  textPrimary: '#f9f8f7',
+  textSoft: 'rgba(255, 255, 255, 0.9)',
+  textSecondary: 'rgba(255, 255, 255, 0.7)',
+  textFaint: 'rgba(255, 255, 255, 0.5)',
+  buttonFill: '#f9f8f7',
+  textOnLight: '#161616',
+  accentOrange: '#ff8001',
+};
 
-import { Platform } from 'react-native';
+// Family names as the font files declare them; the expo-font plugin in app.json embeds the files.
+export const fonts = {
+  display: 'Stack Sans Notch',
+  sans: 'Inter',
+  mono: 'DM Mono',
+};
 
-export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
-  dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
-} as const;
-
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
-
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
-  },
+export const type = StyleSheet.create({
+  h1: { fontFamily: fonts.display, fontSize: 38, lineHeight: 43 },
+  body: { fontFamily: fonts.sans, fontSize: 16, lineHeight: 24 },
+  bodyS: { fontFamily: fonts.sans, fontSize: 14, lineHeight: 24 },
+  caption: { fontFamily: fonts.sans, fontSize: 12, lineHeight: 16 },
+  codeS: { fontFamily: fonts.mono, fontSize: 13.5, lineHeight: 23 },
+  labelXs: { fontFamily: fonts.mono, fontSize: 11, lineHeight: 16, letterSpacing: 1.1, textTransform: 'uppercase' },
+  buttonS: { fontFamily: fonts.mono, fontSize: 13, lineHeight: 20, fontWeight: '500', textTransform: 'uppercase' },
+  nav: { fontFamily: fonts.mono, fontSize: 16, lineHeight: 24, textTransform: 'uppercase' },
+  brand: { fontFamily: fonts.display, fontSize: 26, lineHeight: 30, letterSpacing: -1.56 },
+  brandSlash: { fontFamily: fonts.mono, fontSize: 26, lineHeight: 30, letterSpacing: -1.56 },
 });
-
-export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
-} as const;
-
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
