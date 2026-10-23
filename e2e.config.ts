@@ -33,7 +33,7 @@ export default {
       model: gateway('openai/gpt-6-luna-fast'),
       system: 'You are a thorough QA agent. Verify every outcome.',
       context:
-        "Purchases happen in RevenueCat's paywall, a native screen RevenueCat shows over our app, and then in RevenueCat's Test Store dialog, titled Test Store Purchase, with Test valid purchase, Test failed purchase, and Cancel. It is a RevenueCat sandbox; nothing is charged.",
+        "Purchases happen in RevenueCat's paywall, a native screen RevenueCat shows over our app, and then in RevenueCat's Test Store dialog, titled Test Store Purchase, with Test valid purchase, Test failed purchase, and Cancel (in capitals on Android). The paywall closes with an X: labelled Close at the top right on iOS, unlabelled at the top left on Android. It is a RevenueCat sandbox; nothing is charged.",
     },
   },
   secrets,
