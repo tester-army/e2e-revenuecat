@@ -47,5 +47,6 @@
     "typecheck": "tsc --noEmit",
     "test:e2e": "e2e run"
   },
-  "private": true
+  "private": true,
+  "license": "MIT"
 }
